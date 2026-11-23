@@ -1,0 +1,10 @@
+{
+  "name": "day1-js-steps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Day 1 - JavaScript ES6+ concepts, one small script per concept",
+  "scripts": {
+    "all": "node run-all.js"
+  }
+}

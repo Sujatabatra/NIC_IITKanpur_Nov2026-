@@ -1,0 +1,40 @@
+/* index.css - styles for the step navigator and the demos.
+   It is imported once in main.jsx, so these classes work in every component.
+   (CSS is not the focus of the course; the lessons mostly use inline style objects, see step 01.) */
+
+/* CSS variables: define a colour once, reuse it with var(--name) */
+:root { --ink: #1f2430; --muted: #6b7280; --line: #e2e5ee; --accent: #0e7490; --bg: #f6f7fb; }
+
+/* border-box: width includes padding and border, which makes layouts easier to reason about */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; color: var(--ink); background: var(--bg); }
+button { cursor: pointer; margin-right: 6px; padding: 5px 10px; }
+input, select { padding: 6px; margin-right: 6px; }
+
+/* Page layout: a fixed-width left menu and a flexible main area (CSS grid) */
+.shell { display: grid; grid-template-columns: 270px 1fr; min-height: 100vh; }
+.side { background: #1f2430; color: #fff; padding: 14px; overflow-y: auto; max-height: 100vh; position: sticky; top: 0; }
+.side h2 { font-size: 16px; margin: 0 0 4px; }
+.side p { font-size: 12px; color: #aab; margin: 0 0 12px; }
+.side button { display: block; width: 100%; text-align: left; margin: 0 0 4px; background: transparent; color: #dde; border: 0; border-radius: 6px; padding: 6px 8px; font-size: 13px; }
+.side button:hover { background: #2d3446; }
+.side button.on { background: var(--accent); color: #fff; } /* the selected step */
+.main { padding: 20px 28px; max-width: 980px; }
+.pager { display: flex; gap: 8px; align-items: center; margin: 12px 0; }
+
+/* Boxes used by App.jsx and by some demos (className="card") */
+.card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 16px; margin: 12px 0; }
+.card h3 { margin-top: 0; }
+.lead { color: var(--muted); }
+.demo { border: 2px dashed var(--accent); border-radius: 8px; padding: 16px; background: #fff; } /* the live demo area */
+.new li, .try li { margin: 4px 0; }
+.try { background: #ecfeff; border: 1px solid #a5f3fc; border-radius: 8px; padding: 10px 14px 10px 32px; }
+
+/* The source-code panel */
+pre.src { background: #0f172a; color: #e2e8f0; padding: 14px; border-radius: 8px; overflow: auto; font-size: 12.5px; line-height: 1.45; max-height: 560px; }
+
+/* Small helpers used inside the demos */
+.err { color: #c92a2a; font-size: 13px; }
+table { border-collapse: collapse; background: #fff; }
+th, td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; }
+.badge { padding: 2px 8px; border-radius: 10px; font-size: 12px; background: #e7f5ff; }

@@ -1,0 +1,8 @@
+{
+  "name": "day3-node-steps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Day 3 - Node.js fundamentals, one concept per file",
+  "dependencies": { "dotenv": "^18.0.10" }
+}

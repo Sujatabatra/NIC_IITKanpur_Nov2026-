@@ -1,0 +1,84 @@
+### Day 3 express-steps: requests for the REST Client extension (VS Code). Start ONE step at a time on port 5000.
+@host = http://localhost:5000
+
+### 02 health
+GET {{host}}/api/health
+
+### 03 params and query
+GET {{host}}/api/echo/42
+
+###
+GET {{host}}/api/search?q=asha&page=2
+
+### 03 body
+POST {{host}}/api/echo
+Content-Type: application/json
+
+{ "hello": "world" }
+
+### 04 without key (401)
+GET {{host}}/api/private
+
+### 04 with key (200)
+GET {{host}}/api/private
+x-api-key: secret123
+
+### 05-09 list
+GET {{host}}/api/employees
+
+### 05-09 one
+GET {{host}}/api/employees/1
+
+### create (valid)
+POST {{host}}/api/employees
+Content-Type: application/json
+
+{ "name": "Test User", "email": "test@iitk.ac.in", "position": "Developer", "department": "IT", "salary": 50000 }
+
+### 01 raw http POST (collects the body by hand)
+POST {{host}}/api/echo
+Content-Type: application/json
+
+{ "hello": "raw node" }
+
+### 02 POST a message (express.json + app.post)
+POST {{host}}/api/messages
+Content-Type: application/json
+
+{ "text": "hi" }
+
+### 04 POST with the API key (without the header: 401)
+POST {{host}}/api/private
+Content-Type: application/json
+x-api-key: secret123
+
+{ "note": "protected POST" }
+
+### 07 / 09 / backend: duplicate email (409). Send the "create (valid)" request below twice.
+
+### create (invalid: 400 from step 06 on)
+POST {{host}}/api/employees
+Content-Type: application/json
+
+{ "name": " ", "email": "nope", "salary": -5 }
+
+### partial update
+PATCH {{host}}/api/employees/1
+Content-Type: application/json
+
+{ "salary": 65000 }
+
+### delete (204)
+DELETE {{host}}/api/employees/2
+
+### 07 missing employee (404) and crash (500, step 07 only)
+GET {{host}}/api/employees/99
+
+###
+GET {{host}}/api/crash
+
+### 08 search, sort, pages, stats
+GET {{host}}/api/employees?department=IT&sort=-salary&page=1&limit=2
+
+###
+GET {{host}}/api/employees/stats

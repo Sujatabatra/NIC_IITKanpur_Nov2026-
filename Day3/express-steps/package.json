@@ -1,0 +1,28 @@
+{
+  "name": "day3-express-steps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Day 3 - Express and REST, built up one step at a time",
+  "scripts": {
+    "step01": "node steps/01-raw-http.js",
+    "step02": "node steps/02-hello-express.js",
+    "step03": "node steps/03-request-response.js",
+    "step04": "node steps/04-middleware.js",
+    "step05": "node steps/05-crud.js",
+    "step06": "node steps/06-validation.js",
+    "step07": "node steps/07-error-handling.js",
+    "step08": "node steps/08-search-sort-paging.js",
+    "step09": "node steps/09-layers/server.js",
+    "step10": "node steps/10-security.js",
+    "client": "node client/post-demo.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.5",
+    "express-validator": "^7.3.2",
+    "helmet": "^8.3.0",
+    "morgan": "^1.12.1"
+  }
+}

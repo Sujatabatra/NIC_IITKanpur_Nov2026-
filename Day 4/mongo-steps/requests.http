@@ -1,0 +1,82 @@
+### Day 4 mongo-steps: requests for the REST Client extension (VS Code). Start ONE step at a time on port 5000.
+@host = http://localhost:5000
+
+##################### 07 - Express + MongoDB CRUD (node steps/07-express-crud.js) #####################
+
+### create a department (copy the returned _id into the variable below)
+POST {{host}}/api/departments
+Content-Type: application/json
+
+{ "name": "IT" }
+
+### paste the id here
+@deptId = PASTE_DEPARTMENT_ID
+
+### list departments
+GET {{host}}/api/departments
+
+### create an employee
+POST {{host}}/api/employees
+Content-Type: application/json
+
+{ "name": "Asha Verma", "email": "asha@example.com", "position": "Developer", "salary": 60000, "department": "{{deptId}}" }
+
+### 400 validation errors
+POST {{host}}/api/employees
+Content-Type: application/json
+
+{ "name": "", "email": "x", "salary": -1 }
+
+### 409 duplicate (run the create twice)
+POST {{host}}/api/employees
+Content-Type: application/json
+
+{ "name": "Asha Again", "email": "asha@example.com", "position": "Developer", "salary": 1, "department": "{{deptId}}" }
+
+### 400 bad id
+GET {{host}}/api/employees/123
+
+### list (populated department)
+GET {{host}}/api/employees
+
+##################### 10 - Auth (node steps/10-auth-api.js, after node steps/11-seed.js) #####################
+
+### 401: not logged in
+GET {{host}}/api/employees
+
+### register (role in the body is ignored)
+# @name register
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{ "name": "Test User", "email": "user@example.com", "password": "Passw0rd!", "role": "admin" }
+
+### who am I (cookie is sent automatically)
+GET {{host}}/api/auth/me
+
+### 403: a normal user may not create
+POST {{host}}/api/employees
+Content-Type: application/json
+
+{ "name": "X", "email": "x@example.com", "position": "Y", "salary": 1, "department": "{{deptId}}" }
+
+### login as the seeded admin (email and password are in lib/config.js)
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{ "email": "admin@example.com", "password": "Admin@12345" }
+
+### 201: admin may create
+POST {{host}}/api/employees
+Content-Type: application/json
+
+{ "name": "Admin Created", "email": "ac@example.com", "position": "Analyst", "salary": 50000, "department": "{{deptId}}" }
+
+### 401: wrong password (same message as unknown email)
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{ "email": "admin@example.com", "password": "wrong-password" }
+
+### logout
+POST {{host}}/api/auth/logout

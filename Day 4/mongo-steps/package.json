@@ -1,0 +1,27 @@
+{
+  "name": "day4-mongo-steps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Day 4 - MongoDB, Mongoose and authentication, built up one step at a time",
+  "scripts": {
+    "step01": "node steps/01-native-crud.js",
+    "step02": "node steps/02-connect.js",
+    "step03": "node steps/03-schema-validation.js",
+    "step04": "node steps/04-crud-queries.js",
+    "step05": "node steps/05-references-populate.js",
+    "step06": "node steps/06-aggregation.js",
+    "step07": "node steps/07-express-crud.js",
+    "step08": "node steps/08-bcrypt.js",
+    "step09": "node steps/09-jwt.js",
+    "step10": "node steps/10-auth-api.js",
+    "step11": "node steps/11-seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.12.3"
+  }
+}

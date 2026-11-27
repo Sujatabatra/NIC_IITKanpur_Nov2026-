@@ -1,0 +1,18 @@
+/* Global styles for the Next.js step-by-step lessons (imported once in app/layout.js). */
+body { margin: 0; font-family: system-ui, sans-serif; color: #1f2430; background: #f6f7fb; }
+main { max-width: 900px; margin: 0 auto; padding: 20px; }
+nav.top { background: #1f2430; padding: 12px 20px; display: flex; gap: 16px; align-items: center; }
+nav.top a { color: #fff; text-decoration: none; }
+a { color: #6d28d9; }
+button { cursor: pointer; margin-right: 6px; padding: 5px 10px; }
+input, select { padding: 6px; margin-right: 6px; }
+.banner { background: #fff; border: 1px solid #e2e5ee; border-left: 6px solid #6d28d9; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px; }
+.banner h1 { margin: 0 0 6px; font-size: 22px; }
+.banner ul { margin: 6px 0 0; }
+.card { background: #fff; border: 1px solid #e2e5ee; border-radius: 8px; padding: 14px; margin: 12px 0; }
+.demo { border: 2px dashed #6d28d9; border-radius: 8px; padding: 14px; background: #fff; margin: 12px 0; }
+.err { color: #c92a2a; }
+pre { background: #0f172a; color: #e2e8f0; padding: 12px; border-radius: 8px; overflow: auto; font-size: 12.5px; }
+table { border-collapse: collapse; background: #fff; }
+th, td { border: 1px solid #e2e5ee; padding: 6px 10px; text-align: left; }
+.badge { padding: 2px 8px; border-radius: 10px; font-size: 12px; background: #ede9fe; }

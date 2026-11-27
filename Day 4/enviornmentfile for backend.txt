@@ -1,0 +1,17 @@
+PORT=5000
+NODE_ENV=development
+# CORS allow-list: the browser origin(s) that may call this API. One value or several separated by commas
+# (protocol + host + port, no path, no trailing slash). Use "localhost" everywhere, not 127.0.0.1.
+# Example for two front ends:  CLIENT_URL=http://localhost:3000,http://localhost:5173
+CLIENT_URL=http://localhost:3000
+
+# MongoDB Atlas (or local: mongodb://127.0.0.1:27017/mern_training)
+MONGO_URI=mongodb://127.0.0.1:27017/mern_training
+
+# Generate: node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
+JWT_SECRET=secret@1
+JWT_EXPIRES_IN=1d
+
+# Used only by `npm run seed`
+SEED_ADMIN_EMAIL=admin@example.com
+SEED_ADMIN_PASSWORD=Admin@12345
